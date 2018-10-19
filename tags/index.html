@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,7 +91,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     version: '6.4.2',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -248,22 +248,6 @@
   
 
   
-    
-
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
-  
 
   
 </nav>
@@ -283,6 +267,22 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
           
           <div id="content" class="content">
             
@@ -333,8 +333,7 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="gitalk-container"></div>
+    <div id="gitalk-container">
     </div>
   
 
@@ -448,7 +447,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.2</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
 
 
 
@@ -548,6 +547,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
@@ -576,24 +582,20 @@
 
 
 
-    
-          
-      <link rel='stylesheet' href="https://yiyeti.cc/usr/themes/veryse/css/gitalk.css">
-      <script src="https://yiyeti.cc/usr/themes/veryse/css/gitalk.min.js"></script>
-      <script type="text/javascript">
-          var gitalk = new Gitalk({
-            clientID:  '', 
-            clientSecret: '',
-            id: window.location.pathname,
-            repo: 'yaomer.github.io', 
-            owner: '', 
-            admin: '', 
-            distractionFreeMode: 'true',
-          })
-          gitalk.render('gitalk-container')
-      </script>
-    
-  
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '130383d93e02e0c99ca8',
+          clientSecret: '7050fb912d5efeb944afa13fe593a75fbaaf45c2',
+          repo: 'yaomer.github.io',
+          owner: 'yaomer',
+          admin: ['yaomer'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
