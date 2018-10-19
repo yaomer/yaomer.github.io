@@ -115,17 +115,14 @@
 
 
 
-  <meta name="description" content="AV.initialize(&quot;M0HaO0J7gNzxNAnjNq1OMYxB-gzGzoHsz&quot;, &quot;F7yo36sfb45Pzb6D8pEvhW4H&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
-<meta property="og:type" content="website">
-<meta property="og:title" content="top">
-<meta property="og:url" content="http://yoursite.com/top/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index-1.html">
 <meta property="og:site_name" content="若倾">
-<meta property="og:description" content="AV.initialize(&quot;M0HaO0J7gNzxNAnjNq1OMYxB-gzGzoHsz&quot;, &quot;F7yo36sfb45Pzb6D8pEvhW4H&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T05:43:51.530Z">
+<meta property="og:updated_time" content="2018-10-19T23:08:51.204Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="top">
-<meta name="twitter:description" content="AV.initialize(&quot;M0HaO0J7gNzxNAnjNq1OMYxB-gzGzoHsz&quot;, &quot;F7yo36sfb45Pzb6D8pEvhW4H&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
+<meta name="twitter:title" content="categories">
 
 
 
@@ -134,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/top/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/index-1.html"/>
 
 
 
@@ -144,7 +141,7 @@
   };
 </script>
 
-  <title>top | 若倾</title>
+  <title>categories | 若倾</title>
   
 
 
@@ -256,7 +253,7 @@
         
         
           
-          <li class="menu-item menu-item-categories">
+          <li class="menu-item menu-item-categories menu-item-active">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -361,7 +358,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">top</h1>
+<h1 class="post-title" itemprop="name headline">categories</h1>
 
 <div class="post-meta">
   
@@ -379,31 +376,7 @@
       <div class="post-body">
         
         
-          <p><div id="top"></div></p>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script>AV.initialize("M0HaO0J7gNzxNAnjNq1OMYxB-gzGzoHsz", "F7yo36sfb45Pzb6D8pEvhW4H");</script>
-<script type="text/javascript">
-  var time=0
-  var title=""
-  var url=""
-  var query = new AV.Query('Counter');
-  query.notEqualTo('id',0);
-  query.descending('time');
-  query.limit(1000);
-  query.find().then(function (todo) {
-    for (var i=0;i<1000;i++){
-      var result=todo[i].attributes;
-      time=result.time;
-      title=result.title;
-      url=result.url;
-      var content="<a href='"+"https://yaomer.github.io"+url+"'>"+title+"</a>"+"<br />"+"<font color='#555'>"+"阅读次数："+time+"</font>"+"<br /><br />";
-      document.getElementById("top").innerHTML+=content
-    }
-  }, function (error) {
-    console.log("error");
-  });
-</script>
-
+          
         
       </div>
       
@@ -422,6 +395,13 @@
 
           </div>
           
+
+  
+    <div id="gitalk-container">
+    </div>
+  
+
+
 
         </div>
         
@@ -692,6 +672,21 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '130383d93e02e0c99ca8',
+          clientSecret: '7050fb912d5efeb944afa13fe593a75fbaaf45c2',
+          repo: 'yaomer.github.io',
+          owner: 'yaomer',
+          admin: ['yaomer'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
 
