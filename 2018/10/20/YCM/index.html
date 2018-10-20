@@ -166,7 +166,7 @@
 <meta property="og:site_name" content="若倾">
 <meta property="og:description" content="YCM的大名在这里就不消多说了。下面我们就来说说如何安装吧。 安装YCM算是Vim插件中比较重的了，而且与其他插件不同的是，它是一个带有编译组件的插件。因此也就导致了在安装过程可能会出现各种意想不到的问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-20T14:47:20.456Z">
+<meta property="og:updated_time" content="2018-10-20T14:51:55.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac安装配置YCM">
 <meta name="twitter:description" content="YCM的大名在这里就不消多说了。下面我们就来说说如何安装吧。 安装YCM算是Vim插件中比较重的了，而且与其他插件不同的是，它是一个带有编译组件的插件。因此也就导致了在安装过程可能会出现各种意想不到的问题。">
@@ -444,7 +444,7 @@
                 
               
 
-              <time title="创建时间：2018-10-20 22:47:20" itemprop="dateCreated datePublished" datetime="2018-10-20T22:47:20+08:00">2018-10-20</time>
+              <time title="创建时间：2018-10-20 22:51:55" itemprop="dateCreated datePublished" datetime="2018-10-20T22:51:55+08:00">2018-10-20</time>
             
 
             
@@ -535,7 +535,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">call plug<span class="comment">#begin('~/.vim/plugged')</span></span><br><span class="line">Plug <span class="string">'Valloric/YouCompleteMe'</span></span><br><span class="line">call plug<span class="comment">#end()</span></span><br></pre></td></tr></table></figure>
 <p>然后在Vim中输入<code>:PlugInstall</code>等待自动安装结束即可。这个过程可能会有点久，需要耐心等待。</p>
 <p>如果你不是使用Plug或Vundle安装的，那么你就需要保证YCM安装包的完整性。可以运行下列命令检查：</p>
-<p><code>$ git submodule update --init --recursive</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
 <p>安装成功后，接下来就需要进入编译环节了。编译过程实际上很简单，运行一个脚本就行了。但如果在脚本运行过程中出了点问题，那么你可能就需要完整地一步一步地编译YCM了。</p>
 <hr>
 <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><h3 id="直接运行安装脚本"><a href="#直接运行安装脚本" class="headerlink" title="直接运行安装脚本"></a>直接运行安装脚本</h3><p>如果你需要C-Family语言补全，则运行以下命令：</p>
@@ -552,12 +552,12 @@
 <p>我们将创建一个新文件夹，其中将放置构建文件。运行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~</span><br><span class="line">$ mkdir ycm_build</span><br><span class="line">$ cd ycm_build</span><br></pre></td></tr></table></figure>
 <p>现在我们需要生成Makefile。如果你不关心C-Family语言的语义支持，就请在ycm_build 目录中运行以下命令：</p>
-<p><code>$ cmake -G &quot;Unix Makefiles&quot; . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cmake -G &quot;Unix Makefiles&quot; . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp</span><br></pre></td></tr></table></figure>
 <p>如果你关心C-Family语言的语义支持，那么CMake的调用就会更复杂些。我们假设你在llvm.org中下载的LLVM + Clang的二进制发行版，你提取的存档文件放到了文件夹<code>~/ycm_temp/llvm_root_dir</code>中。</p>
 <p>然后在<code>ycm_build</code>目录中运行以下命令：</p>
-<p><code>$ cmake -G &quot;Unix Makefiles&quot; -DPATH_TO_LLVM_ROOT=~/ycm_temp/llvm_root_dir . ~/.vim/Plug/YouCompleteMe/third_party/ycmd/cpp</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cmake -G &quot;Unix Makefiles&quot; -DPATH_TO_LLVM_ROOT=~/ycm_temp/llvm_root_dir . ~/.vim/Plug/YouCompleteMe/third_party/ycmd/cpp</span><br></pre></td></tr></table></figure>
 <p>现在已经生成了配置文件，使用以下命令编译库：</p>
-<p><code>$ cmake --build . --target ycm_core</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cmake --build . --target ycm_core</span><br></pre></td></tr></table></figure>
 <p>至此YCM就已经安装完成了，<code>ycm_build</code>和<code>ycm_temp</code>目录都可以删除了，不影响使用。</p>
 <p>如果你中间还是出现了一些问题，那么请你仔细按照以上过程重新尝试安装。</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>配置过程需要编辑两个文件：<code>vimrc</code>和<code>.ycm_extra_conf.py</code>。</p>
