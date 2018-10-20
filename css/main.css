@@ -1903,7 +1903,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #18e7ff;
+  background: #ffc391;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2308,6 +2308,29 @@ pre .javascript .function {
 .site-pv .busuanzi-value,
 .page-pv .busuanzi-value {
   margin: 0 5px;
+}
+#needsharebutton-postbottom {
+  position: relative;
+  cursor: pointer;
+  height: 26px;
+}
+#needsharebutton-postbottom .btn {
+  display: initial;
+  padding: 1px 4px;
+  border: 1px solid #555;
+  border-radius: 3px;
+}
+#needsharebutton-float {
+  position: fixed;
+  bottom: 38px;
+  left: -8px;
+  z-index: 9999;
+  cursor: pointer;
+}
+#needsharebutton-float .btn {
+  padding: 0 10px 0 14px;
+  border: 1px solid #555;
+  border-radius: 4px;
 }
 .page-archive .archive-page-counter {
   position: relative;
@@ -3259,20 +3282,6 @@ pre .deletion {
   .tag-cloud {
     margin: -73px 15px 50px 15px;
     padding: 86px 5px 36px 5px;
-  }
-}
-#top {
-  display: block;
-  text-align: center;
-  margin: -100px 50px 40px 50px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
-  background-color: #fff;
-  padding: 106px 36px 10px 36px;
-}
-@media (max-width: 767px) {
-  #top {
-    margin: -93px 15px 50px 15px;
-    padding: 96px 10px 0px 10px;
   }
 }
 .local-search-popup .search-icon,
