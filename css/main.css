@@ -765,7 +765,7 @@ pre .javascript .function {
   border: initial;
   border-left: 3px solid #eee;
   background-color: #f9f9f9;
-  border-radius: 3px;
+  border-radius: 7px;
 }
 .post-body .note h2,
 .post-body .note h3,
@@ -794,7 +794,7 @@ pre .javascript .function {
   margin-bottom: 0;
 }
 .post-body .note.default {
-  background-color: #f7f7f7;
+  background-color: #fefefe;
   border-left-color: #777;
 }
 .post-body .note.default h2,
@@ -805,7 +805,7 @@ pre .javascript .function {
   color: #777;
 }
 .post-body .note.primary {
-  background-color: #f5f0fa;
+  background-color: #fbf9fd;
   border-left-color: #6f42c1;
 }
 .post-body .note.primary h2,
@@ -816,7 +816,7 @@ pre .javascript .function {
   color: #6f42c1;
 }
 .post-body .note.info {
-  background-color: #eef7fa;
+  background-color: #f7fbfd;
   border-left-color: #428bca;
 }
 .post-body .note.info h2,
@@ -827,7 +827,7 @@ pre .javascript .function {
   color: #428bca;
 }
 .post-body .note.success {
-  background-color: #eff8f0;
+  background-color: #f7fbf8;
   border-left-color: #5cb85c;
 }
 .post-body .note.success h2,
@@ -838,7 +838,7 @@ pre .javascript .function {
   color: #5cb85c;
 }
 .post-body .note.warning {
-  background-color: #fdf8ea;
+  background-color: #fefbf3;
   border-left-color: #f0ad4e;
 }
 .post-body .note.warning h2,
@@ -849,7 +849,7 @@ pre .javascript .function {
   color: #f0ad4e;
 }
 .post-body .note.danger {
-  background-color: #fcf1f2;
+  background-color: #fefafa;
   border-left-color: #d9534f;
 }
 .post-body .note.danger h2,
@@ -865,22 +865,22 @@ pre .javascript .function {
   white-space: nowrap;
 }
 .post-body .label.default {
-  background-color: #f0f0f0;
+  background-color: #f7f7f7;
 }
 .post-body .label.primary {
-  background-color: #efe6f7;
+  background-color: #f5f0fa;
 }
 .post-body .label.info {
-  background-color: #e5f2f8;
+  background-color: #eef7fa;
 }
 .post-body .label.success {
-  background-color: #e7f4e9;
+  background-color: #eff8f0;
 }
 .post-body .label.warning {
-  background-color: #fcf6e1;
+  background-color: #fdf8ea;
 }
 .post-body .label.danger {
-  background-color: #fae8eb;
+  background-color: #fcf1f2;
 }
 .post-body .tabs {
   position: relative;
@@ -1866,7 +1866,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e3ec98;
+  background: #4dd29a;
 }
 .links-of-blogroll {
   font-size: 13px;
