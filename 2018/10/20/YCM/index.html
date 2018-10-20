@@ -166,7 +166,7 @@
 <meta property="og:site_name" content="若倾">
 <meta property="og:description" content="YCM的大名在这里就不消多说了。下面我们就来说说如何安装吧。 安装YCM算是Vim插件中比较重的了，而且与其他插件不同的是，它是一个带有编译组件的插件。因此也就导致了在安装过程可能会出现各种意想不到的问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-20T14:34:41.855Z">
+<meta property="og:updated_time" content="2018-10-20T14:47:20.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac安装配置YCM">
 <meta name="twitter:description" content="YCM的大名在这里就不消多说了。下面我们就来说说如何安装吧。 安装YCM算是Vim插件中比较重的了，而且与其他插件不同的是，它是一个带有编译组件的插件。因此也就导致了在安装过程可能会出现各种意想不到的问题。">
@@ -444,7 +444,7 @@
                 
               
 
-              <time title="创建时间：2018-10-20 22:34:41" itemprop="dateCreated datePublished" datetime="2018-10-20T22:34:41+08:00">2018-10-20</time>
+              <time title="创建时间：2018-10-20 22:47:20" itemprop="dateCreated datePublished" datetime="2018-10-20T22:47:20+08:00">2018-10-20</time>
             
 
             
@@ -522,7 +522,7 @@
 <p>如果输出中包含<code>+python或+python3</code>，就说明你的Vim支持py2或py3。</p>
 <p>如果你的Vim不支持python，那么你可能就需要<a href="https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source" target="_blank" rel="noopener">从源码编译安装Vim</a>了，不过别担心，它的过程很简单。</p>
 <h4 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h4><p><code>$ brew install CMake</code></p>
-<h4 id="Command-Line-Tools"><a href="#Command-Line-Tools" class="headerlink" title="Command Line Tools"></a>Command Line Tools</h4><p>如果你需要C-Family语言补全的话，你就需要安装以上工具。它们在你c第一次运行clang时自动安装，也可以通过手工安装：</p>
+<h4 id="Command-Line-Tools"><a href="#Command-Line-Tools" class="headerlink" title="Command Line Tools"></a>Command Line Tools</h4><p>如果你需要C-Family语言补全的话，你就需要安装以上命令行工具。它们在你第一次运行clang时自动安装，也可以通过手工安装：</p>
 <p><code>$ xcode-select --install</code></p>
 <h4 id="pythen-dev"><a href="#pythen-dev" class="headerlink" title="pythen-dev"></a>pythen-dev</h4><p>Mac系统已经默认安装。不过这里需要注意的是：</p>
 <blockquote>
@@ -531,7 +531,7 @@
 <p>如果你已经使用brew安装了，那么你可能需要卸载它。这或许会使你的问题得到解决。</p>
 <p><code>$ brew uninstall python@2</code></p>
 <h3 id="YCM"><a href="#YCM" class="headerlink" title="YCM"></a>YCM</h3><p>安装YCM这里推荐使用Plug安装，当然你使用Vundle也可以。</p>
-<p>在你的.vimrc中加入一下代码段。</p>
+<p>在你的.vimrc中加入以下代码段。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">call plug<span class="comment">#begin('~/.vim/plugged')</span></span><br><span class="line">Plug <span class="string">'Valloric/YouCompleteMe'</span></span><br><span class="line">call plug<span class="comment">#end()</span></span><br></pre></td></tr></table></figure>
 <p>然后在Vim中输入<code>:PlugInstall</code>等待自动安装结束即可。这个过程可能会有点久，需要耐心等待。</p>
 <p>如果你不是使用Plug或Vundle安装的，那么你就需要保证YCM安装包的完整性。可以运行下列命令检查：</p>
