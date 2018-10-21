@@ -171,7 +171,7 @@
 <meta property="og:description" content="大小端的命名来自于《格列佛游记》中一个有关吃鸡蛋先磕鸡蛋的大端还是小端的故事，大家有兴趣的话可以去了解一下。 那么什么是大端、什么是小端呢？   大端：即高位有效字节在低位地址，低位有效字节在高位地址。 小端：即高位有效字节在高位地址，低位有效字节在低位地址。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/endian.png?raw=true">
-<meta property="og:updated_time" content="2018-10-21T12:25:06.684Z">
+<meta property="og:updated_time" content="2018-10-21T12:28:38.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="巧判机器的大小端">
 <meta name="twitter:description" content="大小端的命名来自于《格列佛游记》中一个有关吃鸡蛋先磕鸡蛋的大端还是小端的故事，大家有兴趣的话可以去了解一下。 那么什么是大端、什么是小端呢？   大端：即高位有效字节在低位地址，低位有效字节在高位地址。 小端：即高位有效字节在高位地址，低位有效字节在低位地址。">
@@ -444,7 +444,7 @@
                 
               
 
-              <time title="创建时间：2018-10-21 20:25:06" itemprop="dateCreated datePublished" datetime="2018-10-21T20:25:06+08:00">2018-10-21</time>
+              <time title="创建时间：2018-10-21 20:28:38" itemprop="dateCreated datePublished" datetime="2018-10-21T20:28:38+08:00">2018-10-21</time>
             
 
             
@@ -509,10 +509,11 @@
 <blockquote>
 <ul>
 <li>大端：即高位有效字节在低位地址，低位有效字节在高位地址。</li>
-<li>小端：即高位有效字节在高位地址，低位有效字节在低位地址。<a id="more"></a>
-我们举个例子来说明一下：<code>char a = 1;</code></li>
+<li>小端：即高位有效字节在高位地址，低位有效字节在低位地址。</li>
 </ul>
 </blockquote>
+<a id="more"></a>
+<p>我们举个例子来说明一下：<code>char a = 1;</code></p>
 <p>它在内存中的表示如下图：<br><img src="https://github.com/yaomer/pictures/blob/master/endian.png?raw=true" alt=""></p>
 <p>那么如何用C语言来判断自己所使用机器的大小端呢？<br>通常有两种方法，其本质都是依赖于<strong><em>大小端的概念。</em></strong></p>
 <p>一种方法是借助联合的特性。</p>
@@ -562,6 +563,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/21/sll/" rel="prev" title="单链表的基本操作">
+                单链表的基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
