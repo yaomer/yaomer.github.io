@@ -1732,7 +1732,7 @@ pre .javascript .function {
   display: block;
   width: 0;
   height: 2px;
-  background: #FF7F24;
+  background: #37c6c0;
 }
 .sidebar {
   position: fixed;
@@ -1903,7 +1903,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c83424;
+  background: #e8ff3d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3303,20 +3303,6 @@ pre .deletion {
 ::selection {
   background-color: #fff159;
   color: #555;
-}
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #eee;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #ccc;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #f79533;
 }
 #heart {
   animation: heartAnimate 1.33s ease-in-out infinite;
