@@ -165,7 +165,7 @@
 
   <meta name="description" content="当你不知从哪里听过Vim的鼎鼎大名而信心满满的去安装它后，你打开Vim的界面后是这样的：什么也没有，就是一个黑框框。然后你想尝试打几个字，结果发现终端一直在嘟嘟的响。这时你的心里一定会大失所望，这都是什么啊。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="若倾">
+<meta property="og:title" content="将Vim打造成一个C&#x2F;C++IDE">
 <meta property="og:url" content="http://yoursite.com/2018/10/22/vim-IDE/index.html">
 <meta property="og:site_name" content="若倾">
 <meta property="og:description" content="当你不知从哪里听过Vim的鼎鼎大名而信心满满的去安装它后，你打开Vim的界面后是这样的：什么也没有，就是一个黑框框。然后你想尝试打几个字，结果发现终端一直在嘟嘟的响。这时你的心里一定会大失所望，这都是什么啊。">
@@ -181,9 +181,9 @@
 <meta property="og:image" content="https://camo.githubusercontent.com/fc85311154723793776aed28488befdfaab36c42/68747470733a2f2f692e696d6775722e636f6d2f5366394c7332722e706e67">
 <meta property="og:image" content="https://github.com/Yggdroot/Images/raw/master/leaderf/leaderf_1.gif">
 <meta property="og:image" content="https://camo.githubusercontent.com/d5f800b9602faaeccc2738c302776a8a11797a0e/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f333739373036322f323033393335392f61386539333864362d383939662d313165332d383738392d3630303235656138333635362e676966">
-<meta property="og:updated_time" content="2018-10-22T15:22:48.544Z">
+<meta property="og:updated_time" content="2018-10-22T15:25:46.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="若倾">
+<meta name="twitter:title" content="将Vim打造成一个C&#x2F;C++IDE">
 <meta name="twitter:description" content="当你不知从哪里听过Vim的鼎鼎大名而信心满满的去安装它后，你打开Vim的界面后是这样的：什么也没有，就是一个黑框框。然后你想尝试打几个字，结果发现终端一直在嘟嘟的响。这时你的心里一定会大失所望，这都是什么啊。">
 <meta name="twitter:image" content="https://github.com/yaomer/pictures/blob/master/v2.png?raw=true">
 
@@ -204,7 +204,7 @@
   };
 </script>
 
-  <title> | 若倾</title>
+  <title>将Vim打造成一个C/C++IDE | 若倾</title>
   
 
 
@@ -427,7 +427,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">将Vim打造成一个C/C++IDE
               
             
           </h1>
@@ -452,7 +452,7 @@
                 
               
 
-              <time title="创建时间：2018-10-22 18:33:53 / 修改时间：23:22:48" itemprop="dateCreated datePublished" datetime="2018-10-22T18:33:53+08:00">2018-10-22</time>
+              <time title="创建时间：2018-10-22 00:00:00 / 修改时间：23:25:46" itemprop="dateCreated datePublished" datetime="2018-10-22T00:00:00+08:00">2018-10-22</time>
             
 
             
@@ -462,6 +462,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vim/" itemprop="url" rel="index"><span itemprop="name">vim</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -601,6 +619,7 @@
 <p>当幸运的是，Vim的最新版本提供了延迟加载插件的机制，这可以帮助我们将那些在初打开文件时不用的且较重的插件延迟加载，即打开文件后再加载。这样就能显著提高Vim的启动速度了。</p>
 <p>具体操作如下：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" 延迟加载YCM</span></span><br><span class="line"><span class="string">Plug 'Valloric/YouCompleteMe', &#123; 'on': [] &#125;             </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">"</span> 100ms后调用LoadPlug，且只调用一次</span><br><span class="line">call timer_start(100, <span class="string">'LoadPlug'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span>! LoadPlug(timer) abort</span><br><span class="line">    call plug<span class="comment">#load('YouCompleteMe')</span></span><br><span class="line">endfunction</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -724,6 +743,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
