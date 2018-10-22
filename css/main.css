@@ -1724,16 +1724,6 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
-.reading-progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #37c6c0;
-}
 .sidebar {
   position: fixed;
   right: 0;
@@ -1903,7 +1893,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0eff73;
+  background: #be24ab;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3240,18 +3230,11 @@ pre .deletion {
 .posts-collapse .post-header:hover::before {
   background-color: #a166ab;
 }
-.posts-collapse .collection-title h1,
-.posts-collapse .collection-title h2 {
-  color: #fff;
-}
 .posts-collapse .post-title a {
   color: #5073b8;
 }
 .posts-collapse .post-title a:hover {
   color: #a166ab;
-}
-.posts-collapse .post-header:hover {
-  border-bottom-color: #a166ab;
 }
 .page-archive .archive-page-counter {
   color: #fff;
