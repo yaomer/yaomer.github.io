@@ -182,7 +182,7 @@
 <meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/heap2.png?raw=true">
 <meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/heap7.png?raw=true">
 <meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/heap8.png?raw=true">
-<meta property="og:updated_time" content="2018-10-24T12:46:40.727Z">
+<meta property="og:updated_time" content="2018-10-24T12:56:16.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆及其应用">
 <meta name="twitter:description" content="(二叉堆)是一个数组，它可以被看成一个近似的完全二叉树。树上的每个节点对应数组中的一个元素，除了最底层外，该树是完全充满的，而且是从左向右填充。下文如果不加限定的话，所提到的堆均指二叉堆。常见的堆还有斐波那契堆等。">
@@ -453,7 +453,7 @@
                 
               
 
-              <time title="创建时间：2018-10-24 00:00:00 / 修改时间：20:46:40" itemprop="dateCreated datePublished" datetime="2018-10-24T00:00:00+08:00">2018-10-24</time>
+              <time title="创建时间：2018-10-24 00:00:00 / 修改时间：20:56:16" itemprop="dateCreated datePublished" datetime="2018-10-24T00:00:00+08:00">2018-10-24</time>
             
 
             
@@ -591,6 +591,8 @@
 <h5 id="缩减堆"><a href="#缩减堆" class="headerlink" title="缩减堆"></a>缩减堆</h5><p>缩减堆就是去掉堆中的最大元素。具体思想和堆排序的思想很相似。<strong><em>就是把堆的最后一个元素a[heapsize]赋给最大堆元素a[1]，然后缩减堆。对于新的a[1]，调用max_heap使之满足最大堆的性质即可。</em></strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  delheap函数：去掉并返回最大堆元素  */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">delheap</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> max;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (heapsize &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"heap underflow\n"</span>);</span><br><span class="line">    max = a[<span class="number">1</span>];</span><br><span class="line">    a[<span class="number">1</span>] = a[heapsize--];</span><br><span class="line">    <span class="comment">/*  将堆的最后一个元素赋给最大堆元素，然后缩减堆，即去除堆的最后一个元素  */</span></span><br><span class="line">    max_heap(a, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> max;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>缩减堆的过程可以参照堆排序的过程去理解。</p>
+<hr>
+<p>参考资料：<br><a href="Thomas H.Cormen / Charles E.Leiserson / Ronald L.Rivest / Clifford Stein">算法导论</a></p>
 
       
     </div>
@@ -618,8 +620,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/23/calculator/" rel="next" title="简单计算器">
-                <i class="fa fa-chevron-left"></i> 简单计算器
+              <a href="/2018/10/23/expr/" rel="next" title="栈的应用之表达式转换">
+                <i class="fa fa-chevron-left"></i> 栈的应用之表达式转换
               </a>
             
           </div>
@@ -627,6 +629,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/24/calculator/" rel="prev" title="简单计算器">
+                简单计算器 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
