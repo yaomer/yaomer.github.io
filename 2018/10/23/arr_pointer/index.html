@@ -521,6 +521,7 @@
 <p><strong><em><font color="red">首先，我想先声明一点：数组名绝不是指针，也并不是常量指针。</font></em></strong></p>
 <p>我们先以一个简单的赋值为例，说明一下<code>左值</code>和<code>右值</code>。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = y;</span><br><span class="line">这个语句的含义是：把y中的值放入x所代表的地址中去</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -539,6 +540,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>这时就出现了一个奇怪的现象：我们都知道，只有变量才可以作为左值，而数组名是不能作为左值的。那么数组名不是变量的话，是什么呢？</p>
 <p>如果我们查看一下对应的汇编代码，结果是显而易见的。我们会发现，汇编代码里并没有出现数组名这个东西，<strong><em>数组名只是一个符号而已，标识数组在内存中的位置</em></strong>。但是在某些情况下，编译器会对它进行隐式的转换。<strong><em><font color="red">或者我们可以像指针类型一样，将数组名理解为一个数据类型——数组类型，表示一段连续的内存空间。</font></em></strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">5</span>];</span><br><span class="line">a表示：<span class="keyword">int</span> [<span class="number">5</span>]，即可以存储<span class="number">5</span>个整形元素的一段连续的内存空间。</span><br></pre></td></tr></table></figure>
@@ -553,6 +555,7 @@
 <li>&amp;a，得到一个指向整个数组的指针，即int (*)[]。</li>
 <li>在函数参数中，数组名被转换为一个普通的指针</li>
 <li><font color="red">在除此之外的其他情况下，</font><font color="green">数组名将被隐式转换为一个指向数组首元素的常量指针。</font>
+
 </li>
 </ul>
 </blockquote>
@@ -571,6 +574,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> *x;</span><br><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> y[];</span><br></pre></td></tr></table></figure>
 <p>第一条语句声明x是一个指向int类型的指针；第二条语句声明y是一个int类型的数组，长度尚未确定，<strong><em>其存储在别处定义。</em></strong></p>
 <p>那么，什么是声明，什么是定义呢？</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -589,6 +593,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>两者的主要区别在于：</p>
 <blockquote>
 <ul>
@@ -726,8 +731,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/23/expr/" rel="prev" title="栈的应用之表达式转换">
-                栈的应用之表达式转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/23/calculator/" rel="prev" title="简单计算器">
+                简单计算器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
