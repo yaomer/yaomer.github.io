@@ -170,7 +170,7 @@
 <meta property="og:site_name" content="若倾">
 <meta property="og:description" content="这是[k&amp;amp;r]第一章也就是导言后的一道习题，原题是这样的：  编写一个程序，删除C语言程序中所有的注释语句。要正确处理带引号的字符与字符常量。在C语言中，注释不允许嵌套。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-25T04:58:12.060Z">
+<meta property="og:updated_time" content="2018-10-25T05:07:04.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编写一个程序，删除C语言程序中的所有注释">
 <meta name="twitter:description" content="这是[k&amp;amp;r]第一章也就是导言后的一道习题，原题是这样的：  编写一个程序，删除C语言程序中所有的注释语句。要正确处理带引号的字符与字符常量。在C语言中，注释不允许嵌套。">
@@ -440,7 +440,7 @@
                 
               
 
-              <time title="创建时间：2018-10-25 00:00:00 / 修改时间：12:58:12" itemprop="dateCreated datePublished" datetime="2018-10-25T00:00:00+08:00">2018-10-25</time>
+              <time title="创建时间：2018-10-25 00:00:00 / 修改时间：13:07:04" itemprop="dateCreated datePublished" datetime="2018-10-25T00:00:00+08:00">2018-10-25</time>
             
 
             
@@ -531,11 +531,11 @@
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fjlasjl \\</span></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>如果不压回多读入的\字符的话，程序将不能删除return 0;但它本来是需要删除的。</p>
+<p>如果不压回多读入的<code>\</code>字符的话，程序将不能删除return 0;但它本来是需要删除的。</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  in_dcomment函数：处理多行注释  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">in_dcomment</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line"></span><br><span class="line">    c = getchar();</span><br><span class="line">    d = getchar();</span><br><span class="line">    <span class="keyword">while</span> (c != <span class="string">'*'</span> || d != <span class="string">'/'</span>) &#123;  </span><br><span class="line">        c = d;</span><br><span class="line">        d = getchar();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>对多行注释的处理只需找到与<code>\*</code>匹配的<code>*/</code>，然后跳过其中的内容即可。</p>
+<p>对多行注释的处理只需找到与<code>/*</code>匹配的<code>*/</code>，然后跳过其中的内容即可。</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  echo_quote函数：原样输出引号内的字符  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">echo_quote</span><span class="params">(<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line">    <span class="keyword">while</span> ((d = getchar()) != c) &#123;</span><br><span class="line">        <span class="built_in">putchar</span>(d);</span><br><span class="line">        <span class="keyword">if</span> (d == <span class="string">'\\'</span>)            <span class="comment">/*  正确处理转义字符  */</span></span><br><span class="line">            <span class="built_in">putchar</span>(getchar());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">putchar</span>(d);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
