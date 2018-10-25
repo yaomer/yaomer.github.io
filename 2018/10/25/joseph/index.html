@@ -163,24 +163,17 @@
 
 
 
-  <meta name="description" content="顾名思义，二叉搜索树就是以二叉树来组织的。而二叉树是一颗有根树，它的每个节点至多有两个子节点。 二叉搜索树的每个节点通常是这样组织的：一个指向左子树的指针、一个指向右子树的指针、关键字以及卫星数据。在某些情况下，还可以对树节点作一些更改，比如增加一个指向父节点的指针，这样做的目的是有助于更好地完成某些操作。">
+  <meta name="description" content="我们先看一下对该问题的描述：  已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的基本操作">
-<meta property="og:url" content="https://yaoer.me/2018/10/21/bst/index.html">
+<meta property="og:title" content="约瑟夫环问题详解">
+<meta property="og:url" content="https://yaoer.me/2018/10/25/joseph/index.html">
 <meta property="og:site_name" content="若倾">
-<meta property="og:description" content="顾名思义，二叉搜索树就是以二叉树来组织的。而二叉树是一颗有根树，它的每个节点至多有两个子节点。 二叉搜索树的每个节点通常是这样组织的：一个指向左子树的指针、一个指向右子树的指针、关键字以及卫星数据。在某些情况下，还可以对树节点作一些更改，比如增加一个指向父节点的指针，这样做的目的是有助于更好地完成某些操作。">
+<meta property="og:description" content="我们先看一下对该问题的描述：  已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/bst.png?raw=true">
-<meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/bst1.png?raw=true">
-<meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/bst2.png?raw=true">
-<meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/bst3.png?raw=true">
-<meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/bst4.png?raw=true">
-<meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/bst5.png?raw=true">
-<meta property="og:updated_time" content="2018-10-23T06:27:25.789Z">
+<meta property="og:updated_time" content="2018-10-25T00:42:45.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树的基本操作">
-<meta name="twitter:description" content="顾名思义，二叉搜索树就是以二叉树来组织的。而二叉树是一颗有根树，它的每个节点至多有两个子节点。 二叉搜索树的每个节点通常是这样组织的：一个指向左子树的指针、一个指向右子树的指针、关键字以及卫星数据。在某些情况下，还可以对树节点作一些更改，比如增加一个指向父节点的指针，这样做的目的是有助于更好地完成某些操作。">
-<meta name="twitter:image" content="https://github.com/yaomer/pictures/blob/master/bst.png?raw=true">
+<meta name="twitter:title" content="约瑟夫环问题详解">
+<meta name="twitter:description" content="我们先看一下对该问题的描述：  已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。">
 
 
 
@@ -189,7 +182,7 @@
 
 
 
-  <link rel="canonical" href="https://yaoer.me/2018/10/21/bst/"/>
+  <link rel="canonical" href="https://yaoer.me/2018/10/25/joseph/"/>
 
 
 
@@ -199,7 +192,7 @@
   };
 </script>
 
-  <title>二叉树的基本操作 | 若倾</title>
+  <title>约瑟夫环问题详解 | 若倾</title>
   
 
 
@@ -405,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yaoer.me/2018/10/21/bst/">
+    <link itemprop="mainEntityOfPage" href="https://yaoer.me/2018/10/25/joseph/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="妖儿">
@@ -422,7 +415,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二叉树的基本操作
+          <h1 class="post-title" itemprop="name headline">约瑟夫环问题详解
               
             
           </h1>
@@ -447,24 +440,12 @@
                 
               
 
-              <time title="创建时间：2018-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-21T00:00:00+08:00">2018-10-21</time>
+              <time title="创建时间：2018-10-25 00:00:00 / 修改时间：08:42:45" itemprop="dateCreated datePublished" datetime="2018-10-25T00:00:00+08:00">2018-10-25</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-23 14:27:25" itemprop="dateModified" datetime="2018-10-23T14:27:25+08:00">2018-10-23</time>
               
             
           </span>
@@ -481,7 +462,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C</span></a></span>
 
                 
                 
@@ -523,82 +504,65 @@
       
 
       
-        <p>顾名思义，二叉搜索树就是以二叉树来组织的。而二叉树是一颗有根树，它的每个节点至多有两个子节点。</p>
-<p>二叉搜索树的每个节点通常是这样组织的：<strong><em>一个指向左子树的指针、一个指向右子树的指针、关键字以及卫星数据</em></strong>。在某些情况下，还可以对树节点作一些更改，比如增加一个指向父节点的指针，这样做的目的是有助于更好地完成某些操作。</p>
-<a id="more"></a>
-<p>二叉搜索树也叫二叉排序树，它具有如下性质：</p>
+        <p>我们先看一下对该问题的描述：</p>
 <blockquote>
-<p>设x是二叉搜索树中的一个节点。如果y是x的左子树中的一个节点，那么总有y.key &lt; x.key；如果y是x的右子树中的一个节点，那么总有y.key &gt; x.key。</p>
+<p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。<br><a id="more"></a></p>
 </blockquote>
-<p>换句话说，就是<strong><em>对于任意一个节点来说，它的左子树中的所有节点的关键字都小于它自身的关键字，它的右子树中的所有节点的关键字都大于它自身的关键字。</em></strong></p>
-<p>还有一点需要注意的就是 <strong><em>树中具有相同关键字的节点不能重复出现</em></strong>。要想解决这个问题其实也很容易，只需在树节点中增加一个<strong>count域</strong>，插入时如果遇见相同的节点，就将count加1，删除时类似。我们下面的讨论假设所有的元素都是互异的。</p>
-<p>接下来，我们会发现二叉搜索树和快排是多么的相似。<font color="purple">^o\^</font></p>
-<p><img src="https://github.com/yaomer/pictures/blob/master/bst.png?raw=true" alt=""></p>
+<p>解决该问题通常有两种方法：</p>
+<blockquote>
+<ul>
+<li><font color="red">模拟法</font>（模拟整个游戏的运行过程）<ul>
+<li><strong><em>循环链表</em></strong></li>
+<li><strong><em>数组</em></strong></li>
+</ul>
+</li>
+<li><font color="red">数学公式法</font>（直接通过公式推导得出结果，不关心具体过程）</li>
+</ul>
+</blockquote>
+<p>谈不上哪种更简单，只在于思考问题、解决问题的方式不同而已。</p>
+<blockquote>
+<ul>
+<li>模拟法的时间复杂度为O(mn)，当n和m很大时，程序将很难在短时间内得到结果。<ul>
+<li>模拟法的一个优点是：程序的设计思路很清晰。</li>
+</ul>
+</li>
+<li>数学公式法的时间复杂度为O(n)。<ul>
+<li>数学方法虽然使最终的程序编写起来很简单，但前提是，你得有足够强的抽象思维能力，能够得出最终的公式。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>下面我们给出以上各种方法的实现：</p>
 <hr>
-<p>下面我们给出一些二叉搜索树的基本操作</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">tnode</span> &#123;</span>     <span class="comment">/*  树节点  */</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tnode</span> *<span class="title">left</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">tnode</span> *<span class="title">right</span>;</span></span><br><span class="line">&#125; Tnode;</span><br></pre></td></tr></table></figure>
-<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><blockquote>
-<p>查找操作通常需要返回指向树中具有某个关键字的节点的指针，如果不存在则返回NULL。</p>
+<h3 id="模拟法"><a href="#模拟法" class="headerlink" title="模拟法"></a>模拟法</h3><h4 id="循环链表模拟"><a href="#循环链表模拟" class="headerlink" title="循环链表模拟"></a>循环链表模拟</h4><blockquote>
+<p>确切说来，我们具体使用的是单向循环链表。我们从1，2，3，…n给每个人编号。一旦他出列，我们就将他从链表中删去，直到剩下最后一个人，即为获胜者。</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  search_tree函数（递归版本）：在树中查找某个值  */</span></span><br><span class="line"><span class="function">Tnode *<span class="title">search_tree</span><span class="params">(Tnode *p, <span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span> || val == p-&gt;val)</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (val &lt; p-&gt;val)</span><br><span class="line">        <span class="keyword">return</span> search_tree(p-&gt;left, val);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> search_tree(p-&gt;right, val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> number;     <span class="comment">/*  编号  */</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; Node;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>由于树本身是递归定义的，所以这种递归操作是如此的容易，以至于让很多人不厌其烦地使用它。</p>
+<p>这里需要注意的是删除操作。我们都知道，每个节点都有一个next指针指向它，为了将删除所有位置的节点看作一种通用的情况，我们需要一个指向next域的指针，即一个二级指针。而且在删除过程中，要注意保证链表不断裂。</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  search_tree函数（迭代版本）：在树中查找某个值  */</span></span><br><span class="line"><span class="function">Tnode *<span class="title">search_tree</span><span class="params">(Tnode *p, <span class="keyword">int</span> val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; val != p-&gt;val)</span><br><span class="line">        <span class="keyword">if</span> (val &lt; p-&gt;val)</span><br><span class="line">            p = p-&gt;left;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (val &gt; p-&gt;val)</span><br><span class="line">            p = p-&gt;right;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head, **np, *tmp;</span><br><span class="line">    <span class="keyword">int</span> n, m, k;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line"></span><br><span class="line">    head = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> ((head = creat_cll(head, n)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">/*  初始化链表  */</span></span><br><span class="line">    <span class="keyword">for</span> (np = &amp;head-&gt;next; *np != head; np = &amp;(*np)-&gt;next)</span><br><span class="line">        <span class="keyword">if</span> ((*np)-&gt;number == k)    <span class="comment">/*  找到开始报数的人  */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ((*np)-&gt;next != *np) &#123;    <span class="comment">/*  剩下最后一个节点，循环终止  */</span></span><br><span class="line">        <span class="keyword">if</span> (k++ == m) &#123;     <span class="comment">/*  删除应该出列的人  */</span></span><br><span class="line">            tmp = (*np)-&gt;next;</span><br><span class="line">            <span class="built_in">free</span>(*np);</span><br><span class="line">            *np = tmp;</span><br><span class="line">            k = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            np = &amp;(*np)-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*np)-&gt;number);   <span class="comment">/*  打印出获胜者  */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>迭代版本也是简单而直接的，只需展开递归即可。对于绝大多数计算机来说，迭代版本的效率要更高一些。</p>
+<p>下面的操作类似于单链表的创建，只是最后我们需要把链表的首尾连接起来而已。</p>
 </blockquote>
-<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>二叉搜索树的遍历根据何时输出子树根的关键字可分为三种：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  creat_cll函数：创建一个单向循环链表，并初始化  */</span></span><br><span class="line"><span class="function">Node *<span class="title">creat_cll</span><span class="params">(Node *head, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *<span class="keyword">new</span>, *pre;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((pre = <span class="keyword">new</span> = head = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node))) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">new</span>-&gt;number = n;</span><br><span class="line">    <span class="keyword">while</span> (--n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((<span class="keyword">new</span> = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node))) == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">new</span>-&gt;next = pre;</span><br><span class="line">        pre = <span class="keyword">new</span>;</span><br><span class="line">        <span class="keyword">new</span>-&gt;number = n;</span><br><span class="line">    &#125;</span><br><span class="line">    head-&gt;next = <span class="keyword">new</span>;    <span class="comment">/*  连接链表的首尾  */</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环链表还有一种方法，就是采用惰性删除</p>
 <blockquote>
-<ul>
-<li>先序遍历：输出的子树根的关键字在其左右子树的关键字之前</li>
-<li>中序遍历：输出的子树根的关键字在其左右子树的关键字之间</li>
-<li>后序遍历：输出的子树根的关键字在其左右子树的关键字之后</li>
-</ul>
+<p>意思就是我们并不真正地删除链表节点，而只是将它标记为已删除状态。因为我们的编号都是大于0的数，所以一旦某个人出列，我们只需将他的number置为0即可。</p>
 </blockquote>
-<p><strong><em>所谓中序遍历，就是先遍历左子树，然后是当前结点(子树根节点)，最后是右子树</em></strong>。其他两种遍历操作类似。不过中序遍历常常是有用的，因为它从小到大输出树中所有节点的关键字。</p>
-<p>在表达式树中，这三种遍历方法通常产生三种表达式：即前缀表达式、中缀表达式和后缀表达式。</p>
-<blockquote>
-<p><code>应当注意的是</code>：<strong><em>树的遍历需要花费O(n)的时间，而不是像其他操作一样花费O(log n)的时间。这是因为它需要遍历树的每一个节点。</em></strong></p>
+<p>具体过程如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head, *p;</span><br><span class="line">    <span class="keyword">int</span> n, m, k;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line"></span><br><span class="line">    head = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> ((head = creat_cll(head, n)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (p = head-&gt;next; p != head; p = p-&gt;next)</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;number == k)    <span class="comment">/*  找到开始报数的人  */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k++ == m) &#123;</span><br><span class="line">            p-&gt;number = <span class="number">0</span>;</span><br><span class="line">            k = <span class="number">1</span>;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">do</span> &#123;    <span class="comment">/*  每次遍历链表的时候，需要跳过那些已出列的节点，即number域为0的节点  */</span></span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125; <span class="keyword">while</span> (!p-&gt;number);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p-&gt;number);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后我们并没有销毁链表，你可以自行加上该操作。</p>
+<hr>
+<h4 id="数组模拟"><a href="#数组模拟" class="headerlink" title="数组模拟"></a>数组模拟</h4><blockquote>
+<p>数组模拟方法的难点在于我们要循环使用一个线性数组，其实稍微认真思考一下，也不是很难。每当遍历到数组末尾的时候，我们就从头重新开始遍历，一旦某个人出列，就将该处的值置为0，直到剩下最后一个人。</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  travel_pre函数：先序遍历  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">travel_pre</span><span class="params">(Tnode *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p-&gt;val);</span><br><span class="line">        travel_pre(p-&gt;left);</span><br><span class="line">        travel_pre(p-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  travel_in函数：中序遍历  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">travel_in</span><span class="params">(Tnode *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        travel_in(p-&gt;left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p-&gt;val);</span><br><span class="line">        travel_in(p-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  travel_post函数：后序遍历  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">travel_post</span><span class="params">(Tnode *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        travel_post(p-&gt;left);</span><br><span class="line">        travel_post(p-&gt;right);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="返回最大关键字元素和最小关键字元素"><a href="#返回最大关键字元素和最小关键字元素" class="headerlink" title="返回最大关键字元素和最小关键字元素"></a>返回最大关键字元素和最小关键字元素</h3><blockquote>
-<p>由于二叉搜索树自身的性质，这两种操作也是相当简单的。我们一种用递归实现，一种用迭代实现。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  mintree函数：返回树中的最小节点  */</span></span><br><span class="line"><span class="function">Tnode *<span class="title">mintree</span><span class="params">(Tnode *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span> || p-&gt;left == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> mintree(p-&gt;left);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  maxtree函数：返回树中的最大节点  */</span></span><br><span class="line"><span class="function">Tnode *<span class="title">maxtree</span><span class="params">(Tnode *p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">while</span> (p-&gt;right != <span class="literal">NULL</span>)</span><br><span class="line">            p = p-&gt;right;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><blockquote>
-<p>插入和删除操作会引起由二叉搜索树表示的动态集合的变化，因此我们要对树做一些修改来维护树本身的性质。插入一个节点要相对简单些，而删除的处理则有些复杂。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  addtree函数：在树中插入一个节点  */</span></span><br><span class="line"><span class="function">Tnode *<span class="title">addtree</span><span class="params">(Tnode *p, <span class="keyword">int</span> new_val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>) &#123;   <span class="comment">/*  找到了插入位置  */</span></span><br><span class="line">        <span class="keyword">if</span> ((p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Tnode))) == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        p-&gt;val = new_val;</span><br><span class="line">        p-&gt;left = p-&gt;right = <span class="literal">NULL</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (new_val &lt; p-&gt;val)</span><br><span class="line">        p-&gt;left = addtree(p-&gt;left, new_val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (new_val &gt; p-&gt;val)</span><br><span class="line">        p-&gt;right = addtree(p-&gt;right, new_val);</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>对于删除二叉搜索树中的一个节点，可能有如下三种情况：</p>
-<blockquote>
-<ul>
-<li>没有子节点，它可以立即被删除</li>
-<li>只有一个子节点，可以通过调整其父节点中的指针，使指针绕过该节点后而被删除</li>
-<li>有两个子节点，下面作详细说明</li>
-</ul>
-</blockquote>
-<p>第一种情况其实是可以归结到第二种情况中的。比较令人棘手的问题就是第三种情况的处理了。虽然它看起来是比较复杂的，但是由于二叉搜索树本身的性质，我们可以用一种简单的方法来处理它。即 <strong><em><font color="red">用待删除节点的后继节点中的数据来替换待删除节点中的数据，然后再删除其后继节点。</font></em></strong><br><strong><em>由于在这种情况下，待删除节点的右子树非空，所以其后继节点即为其右子树中的最小节点。</em></strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Tnode *<span class="title">deltree</span><span class="params">(Tnode *p, <span class="keyword">int</span> old_val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Tnode *tmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (old_val &lt; p-&gt;val)</span><br><span class="line">        p-&gt;left = deltree(p-&gt;left, old_val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (old_val &gt; p-&gt;val)</span><br><span class="line">        p-&gt;right = deltree(p-&gt;right, old_val);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (p-&gt;left &amp;&amp; p-&gt;right) &#123;   <span class="comment">/*  待删除节点有两个孩子  */</span></span><br><span class="line">        tmp = mintree(p-&gt;right);   <span class="comment">/*  找到其后继节点  */</span></span><br><span class="line">        p-&gt;val = tmp-&gt;val;    <span class="comment">/*  用后继节点中的数据来替换待删除节点中的数据  */</span></span><br><span class="line">        p-&gt;right = deltree(p-&gt;right, p-&gt;val);    <span class="comment">/*  删除后继节点  */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;   <span class="comment">/*  待删除节点有0个或1个孩子  */</span></span><br><span class="line">        tmp = p;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;left == <span class="literal">NULL</span>)</span><br><span class="line">            p = p-&gt;right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p-&gt;right == <span class="literal">NULL</span>)</span><br><span class="line">            p = p-&gt;left;</span><br><span class="line">        <span class="built_in">free</span>(tmp);</span><br><span class="line">        tmp = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后我们用图解详细说明一下删除过程：</p>
-<blockquote>
-<p><code>case 1：有0个或1个子节点</code></p>
-</blockquote>
-<p><img src="https://github.com/yaomer/pictures/blob/master/bst1.png?raw=true" alt=""></p>
-<blockquote>
-<p>4是要待删除的节点，我们只需要把指针绕过4，然后释放该节点即可完成删除。</p>
-</blockquote>
-<p><img src="https://github.com/yaomer/pictures/blob/master/bst2.png?raw=true" alt=""></p>
-<blockquote>
-<p><code>case 2：有2个子节点</code></p>
-</blockquote>
-<p><img src="https://github.com/yaomer/pictures/blob/master/bst3.png?raw=true" alt=""></p>
-<blockquote>
-<p>2是要待删除的节点，我们从节点2开始，找到它的后继节点3， 然后用3来替代2，然后我们删除其后继节点3。即这种方法并不是真正的删除想要删除的节点，只是间接删除。要想真正删除待删除节点，情况就比较复杂了，算法导论中有相关的描述，大家可以去看看。</p>
-</blockquote>
-<p><img src="https://github.com/yaomer/pictures/blob/master/bst4.png?raw=true" alt=""></p>
-<p>我们上面描述的删除算法将会使得左子树比右子树更深，因为我们总是用右子树中的一个节点来代替需要删除的节点。在进行大量随机的<strong>insert / delete</strong>操作后，树或许会变得很不平衡。<br>如果输入的数据是已排好序的，那么二叉搜索树就会退化为线性表，多次<strong>insert</strong>操作将会花费O(n^2)的时间。这无疑不是我们所期望的。</p>
-<p><img src="https://github.com/yaomer/pictures/blob/master/bst5.png?raw=true" alt=""><br>有一些二叉搜索树的变种可以解决这些问题，我们以后会提到的。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *p, *q, </span><br><span class="line">    <span class="keyword">char</span> *eq;    <span class="comment">/*  指向数组末尾  */</span></span><br><span class="line">    <span class="keyword">int</span> n, m, k, i;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">    <span class="keyword">if</span> ((q = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * n)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">/*  为使用的数组分配内存空间  */</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        q[i] = i + <span class="number">1</span>;    <span class="comment">/*  初始化数组  */</span></span><br><span class="line"></span><br><span class="line">    i = <span class="number">1</span>;</span><br><span class="line">    eq = q + n;</span><br><span class="line">    p = q + k - <span class="number">1</span>;     <span class="comment">/*  指向开始报数的人  */</span></span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i++ == m) &#123;</span><br><span class="line">            *p = <span class="number">0</span>;</span><br><span class="line">            i = <span class="number">1</span>;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (++p &gt;= eq)    <span class="comment">/*  到达数组末尾后，就从头重新开始遍历  */</span></span><br><span class="line">                p = q;</span><br><span class="line">        &#125; <span class="keyword">while</span> (!*p);    <span class="comment">/*  跳过已出列的人  */</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *p);</span><br><span class="line">    <span class="built_in">free</span>(q);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="数学公式法"><a href="#数学公式法" class="headerlink" title="数学公式法"></a>数学公式法</h4><p>利用下面这个递推公式，我们就能得到我们想要的结果。</p>
+<p>$$f(N,M)=(f(N−1,M)+M)%N$$</p>
+<p>$f(N,M)$表示：N个人报数，杀掉报M的那个人，最终胜利者的编号。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n;    <span class="comment">/* 总人数 */</span></span><br><span class="line">    <span class="keyword">int</span> m;    <span class="comment">/* 数到m出列 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        p = (p + m) % i;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"winner is %d\n"</span>, p + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -626,8 +590,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/20/stack/" rel="next" title="栈的基本操作">
-                <i class="fa fa-chevron-left"></i> 栈的基本操作
+              <a href="/2018/10/24/heap/" rel="next" title="堆及其应用">
+                <i class="fa fa-chevron-left"></i> 堆及其应用
               </a>
             
           </div>
@@ -635,10 +599,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/21/YCM/" rel="prev" title="Mac安装配置YCM">
-                Mac安装配置YCM <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -795,7 +755,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查找"><span class="nav-number">1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">2.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回最大关键字元素和最小关键字元素"><span class="nav-number">3.</span> <span class="nav-text">返回最大关键字元素和最小关键字元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入"><span class="nav-number">4.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">5.</span> <span class="nav-text">删除</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟法"><span class="nav-number">1.</span> <span class="nav-text">模拟法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环链表模拟"><span class="nav-number">1.1.</span> <span class="nav-text">循环链表模拟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组模拟"><span class="nav-number">1.2.</span> <span class="nav-text">数组模拟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数学公式法"><span class="nav-number">1.3.</span> <span class="nav-text">数学公式法</span></a></li></ol></li></ol></div>
             
 
           </div>
