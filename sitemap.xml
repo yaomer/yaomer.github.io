@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yaoer.me/2018/10/22/vim-IDE/</loc>
+    
+    <lastmod>2018-10-27T01:46:23.968Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yaoer.me/2018/10/25/snake/</loc>
     
     <lastmod>2018-10-25T05:27:34.692Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://yaoer.me/2018/10/21/endian/</loc>
     
     <lastmod>2018-10-22T15:26:03.947Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoer.me/2018/10/22/vim-IDE/</loc>
-    
-    <lastmod>2018-10-22T15:25:46.400Z</lastmod>
     
   </url>
   
