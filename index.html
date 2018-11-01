@@ -441,7 +441,7 @@
                 
               
 
-              <time title="创建时间：2018-11-01 00:00:00 / 修改时间：15:59:16" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
+              <time title="创建时间：2018-11-01 00:00:00 / 修改时间：16:05:28" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
             
 
             
@@ -498,91 +498,23 @@
 
       
         
-          
-            <p>C语言中的类型转换有两种：</p>
+          <p>C语言中的类型转换有两种：</p>
 <blockquote>
 <ul>
 <li><code>隐式类型转换(自动类型转换)</code>：这通常会发生在操作数类型不同的二元运算符中，一般是由编译器帮我们做的。</li>
 <li><code>显示类型转换(强制类型转换)</code>：我们自己转换自己想要的类型。</li>
 </ul>
 </blockquote>
-<p><strong>隐式类型转换</strong>往往很容易被我们忽略，它通常发生在不经意间，在多数情况下，我们不必去在意其中到底发生了什么，编译器又为我们做了什么、隐藏了什么；但在有些时候，编译器私下不为人知的<strong>隐式类型转换</strong>的结果却会出乎我们的意料之外，倘若我们不明白其中的道理，就会导致一些莫名其妙的<strong>bug</strong>。因此，我们有理由去弄懂它。</p>
-<p><strong>显示类型转换</strong>因为是我们自己主观的行为，所以当出现<strong>显示类型转换</strong>时我们知道自己在做什么，并且知道它的结果是什么。但在其中到底发生了什么，有些人未必很清楚，因次也需要去弄懂其中的原理，这十分有助于我们以后更深入地学习。</p>
-<hr>
-<h3 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h3><p>C语言应该来说是一种强类型语言，但在语法检查方面却是比较弱的。C语言中基本的数据类型有以下几种：<code>char、short、int、long、long long、float、double、long double</code>以及可选的修饰符<code>signed、unsigned</code>。</p>
-<p>在很多情况下都会发生隐式的类型转换。一般来说，<strong><em>如果二元运算符(具有两个操作数的运算符)的两个操作数具有不同的类型，那么在进行运算前先要把 “较低(较窄)”的类型提升为“较高(较宽)”的类型，运算的结果为后者</em></strong>。</p>
-<p>如果没有<code>unsigned</code>类型的操作数，则只要使用下面这些<strong>非正式规则</strong>就可以了：</p>
-<blockquote>
-<ul>
-<li>如果其中一个操作数的类型为<code>long double</code>，则将另一个操作数转换为<code>long double</code>类型。</li>
-<li>如果其中一个操作数的类型为<code>double</code>，则将另一个操作数转换为<code>double</code>类型。</li>
-<li>如果其中一个操作数的类型为<code>float</code>，则将另一个操作数转换为<code>float</code>类型。</li>
-<li><code>char</code>和<code>short</code>类型的操作数将转换为<code>int</code>类型，这个过程称为<strong>整型提升</strong>。</li>
-<li>如果其中一个操作数的类型为<code>long</code>，则将另一个操作数也转换为<code>long</code>类型。</li>
-</ul>
-</blockquote>
-<p><strong><em>在将<code>char</code>类型转换为<code>int</code>类型时需要特别注意</em></strong>。C语言没有规定<code>char</code>类型的变量是<code>signed</code>类型还是<code>unsigned</code>类型。当把一个<code>char</code>类型转换为<code>int</code>类型时，其结果可能为正，也可能为负，这取决于你所使用的机器。在某些机器中，如果<code>char</code>类型的最高位为1，则转换为负值，即进行<strong>符号扩展</strong>；而在另一些机器中，把<code>char</code>类型转换为<code>int</code>类型时，<code>char</code>类型的最高位总被填充为0，这导致转换的结果总是正值。</p>
-<p><strong><em>C语言的定义保证了机器的标准打印字符集中的字符不会是负值</em></strong>。因此，在表达式中这些字符总是正值。但是，存储在字符变量中的位模式在某些机器中可能是负的，而在另一些机器中则可能是正的。为了保证程序的可移植性，如果要在<code>char</code>类型数据中存储非字符数据，最好指定<code>signed</code>或<code>unsigned</code>限定符。</p>
-<p>我们看下面一个例子。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a = <span class="number">0244</span>;</span><br><span class="line">    <span class="keyword">int</span>  b = <span class="number">0244</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"a = %d\nb = %d\n"</span>, a, b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>程序的运行结果为：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">-92</span>;</span><br><span class="line">b = <span class="number">164</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>八进制数<code>0244</code>的十进制表达为<code>164</code>，对应的位模式为<code>10100100</code>。很显然在我的机器上，当从<code>char</code>类型转换到<code>int</code>类型时会进行符号扩展，即<code>0244</code>会被解释为一个负值。<code>10100100</code>对应的补码形式为<code>11011100</code>，它的值即为<code>-92</code>。</p>
-</blockquote>
-<p>还有一点就是，表达式中的<code>float</code>类型的操作数不会自动转换为<code>double</code>类型。</p>
-<p>当表达式中包含<code>unsigned</code>类型的操作数时，转换规则要复杂一些。主要原因在于，有符号数和无符号数之间的比较运算是与机器相关的，它们取决于机器中不同整数类型的大小。</p>
-<p>赋值时若进行类型转换，则赋值运算符右边的操作数需要转换为左边操作数的类型，该类型即为赋值表达式结果的类型。</p>
-<p>由于函数调用的参数也是表达式，所以在把参数传递给函数时也可能进行类型转换。</p>
-<p>在没有函数原型的情况下，<code>char</code>和<code>short</code>类型都将被转换为<code>int</code>类型，<code>float</code>类型将被转换为<code>double</code>类型。</p>
-<p><strong><em>整型提升</em></strong></p>
-<blockquote>
-<p>在一个表达式中，凡是可以使用整型的地方都可以使用<code>signed</code>或<code>unsigned</code>类型的字符、短整型或位字段，还可以使用枚举类型的对象。如果原始类型的所有值都可以用<code>int</code>类型表示，则其值将被转换为<code>int</code>类型；否则将被转换为<code>unsigned int</code>类型。这一过程称为<strong>整型提升</strong>。</p>
-</blockquote>
-<p><strong><em>整型转换</em></strong></p>
-<blockquote>
-<ul>
-<li>将任何整数转换为某种指定类型的无符号数的方法是：<strong><em>以该无符号类型能够表示的最大值加1为模，找出与此整数同余的最小的非负值</em></strong>。在补码表示中，如果该无符号数的位模式较窄，这就相当于左截取；如果该无符号数的位模式较宽，这就相当于对带符号数进行符号扩展和对无符号数进行0填充。</li>
-<li>将任何整数转换为带符号类型时，如果它可以在新类型中表示出来，则其值保持不变，否则它的值同具体的实现有关。</li>
-</ul>
-</blockquote>
-<p><strong><em>整型和浮点数</em></strong></p>
-<blockquote>
-<ul>
-<li>当把浮点类型转换为整型时，小数部分将被丢弃。如果其结果值不能用整型表示出来，则其行为是为定义的。特别是，将负的浮点数转换为无符号整型的结果是没有定义的。</li>
-<li>当把整型转换为浮点类型时，如果该值在该浮点类型的可表示范围内但不能精确表示，则结果可能是下一个较高或较低的可表示值。如果该值超出可表示范围，则其行为是未定义的。</li>
-</ul>
-</blockquote>
-<p><strong><em>浮点类型</em></strong></p>
-<blockquote>
-<p>将一个精度较低的浮点值转换为一个相同的或精度较高的浮点类型时，它的值保持不变。将一个较高精度的浮点值转换为较低精度的浮点类型时，如果它的值在可表示范围内，则结果可能是下一个较高或较低的可表示值。如果结果在可表示范围之外，则其行为是未定义的。</p>
-</blockquote>
-<p><strong><em>算术类型转换</em></strong></p>
-<blockquote>
-<ul>
-<li>首先，如果任何一个操作数为<code>long double</code>类型，则将另一个操作数转换为<code>long double</code>类型。</li>
-<li>否则，如果任何一个操作数为<code>double</code>类型，则将另一个操作数转换为<code>double</code>类型。</li>
-<li>否则，如果其中一个操作数为<code>float</code>类型，则将另一个操作数转换为<code>float</code>类型。</li>
-<li>否则，同时对两个操作数进行整型提升；然后，如果任何一个操作数为<code>unsigned long</code>类型，则将另一个操作数转换为<code>unsigned long</code>类型。</li>
-<li>否则，如果一个操作数为<code>long</code>类型且另一个操作数<code>unsigned</code>类型，则其结果依赖于<code>long</code>类型是否可以表示所有的<code>unsigned</code>类型的值。如果可以，则将<code>unsigned</code>类型的操作数转换为<code>long</code>类型；如果不可以，则将两个操作数都转换为<code>unsigned long</code>类型。</li>
-<li>否则，如果一个操作数为<code>long</code>类型，则另一个操作数转换为<code>long</code>类型。</li>
-<li>否则，如果任何一个操作数为<code>unsigned</code>类型，则将另一个操作数转换为<code>unsigned</code>类型。</li>
-<li>否则，将两个操作数都转换为<code>int</code>类型。</li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h3><p>在任何表达式中都可以使用<strong>强制类型转换</strong>进行显示的类型转换。<br><code>(类型名) 表达式</code><br>我们可以这样理解强制类型转换的准确含义：<strong><em>在上述语句中，表达式首先被赋值给我们指定类型的某个变量，然后在用该变量替换上述整条语句</em></strong>。</p>
-<p>需要注意的一点是：<strong><em>强制类型转换只是生成了一个临时的我们指定类型的值，原有的被转换的值不会发生变化，并且含有强制类型转换的表达式不能作为左值</em></strong>。</p>
-<p>在通常情况下，参数是通过函数原型声明的。这样，当函数被调用时，声明将对参数自动进行强制类型转换。例如<math.h>中的数学函数<br><code>double sqrt(double);</code><br>无论我们的调用参数是否是<code>double</code>类型，它都会被强制转换为<code>double</code>类型。</math.h></p>
-<hr>
-<h4 id="对指针进行强制类型转换"><a href="#对指针进行强制类型转换" class="headerlink" title="对指针进行强制类型转换"></a>对指针进行强制类型转换</h4><p>最后我们来说一下对指针的强制类型转换。</p>
-<p>我们知道指针是一种保存地址的变量。<strong><em>而不同类型的指针的区别仅在于编译器对该地址的解释不同而已</em></strong>。</p>
-<p>类如一个<code>char</code>类型指针<code>p</code>和<code>int</code>类型指针<code>q</code>，我们如果对<code>p</code>进行解引用操作，则编译器会做以下事情：<strong><em>以<code>p</code>中保存的地址为基地址，向后偏移<code>sizeof(char)</code>,取出这段内存地址中的内容</em></strong>。如果对<code>q</code>进行解引用操作，编译器行为的不同仅在于<code>向后偏移不再是1而是sizeof(int)</code>。</p>
-<p>所以说对某种类型的指针进行强制类型转换的目的仅在于 <strong><em>我们想以什么样的方式去访问某段内存</em></strong>。</p>
-<hr>
-<p>参考资料：<br>[C程序设计语言][K&amp;R]</p>
 
           
+
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/01/ctype/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
