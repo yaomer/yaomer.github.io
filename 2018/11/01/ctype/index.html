@@ -170,7 +170,7 @@
 <meta property="og:site_name" content="若倾">
 <meta property="og:description" content="C语言中的类型转换有两种：   隐式类型转换(自动类型转换)：这通常会发生在操作数类型不同的二元运算符中，一般是由编译器帮我们做的。 显示类型转换(强制类型转换)：我们自己转换自己想要的类型。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T08:05:28.569Z">
+<meta property="og:updated_time" content="2018-11-01T08:08:27.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈C语言中的类型转换">
 <meta name="twitter:description" content="C语言中的类型转换有两种：   隐式类型转换(自动类型转换)：这通常会发生在操作数类型不同的二元运算符中，一般是由编译器帮我们做的。 显示类型转换(强制类型转换)：我们自己转换自己想要的类型。">
@@ -440,7 +440,7 @@
                 
               
 
-              <time title="创建时间：2018-11-01 00:00:00 / 修改时间：16:05:28" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
+              <time title="创建时间：2018-11-01 00:00:00 / 修改时间：16:08:27" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
             
 
             
@@ -584,7 +584,7 @@
 <h4 id="对指针进行强制类型转换"><a href="#对指针进行强制类型转换" class="headerlink" title="对指针进行强制类型转换"></a>对指针进行强制类型转换</h4><p>最后我们来说一下对指针的强制类型转换。</p>
 <p>我们知道指针是一种保存地址的变量。<strong><em>而不同类型的指针的区别仅在于编译器对该地址的解释不同而已</em></strong>。</p>
 <p>类如一个<code>char</code>类型指针<code>p</code>和<code>int</code>类型指针<code>q</code>，我们如果对<code>p</code>进行解引用操作，则编译器会做以下事情：<strong><em>以<code>p</code>中保存的地址为基地址，向后偏移<code>sizeof(char)</code>,取出这段内存地址中的内容</em></strong>。如果对<code>q</code>进行解引用操作，编译器行为的不同仅在于<code>向后偏移不再是1而是sizeof(int)</code>。</p>
-<p>所以说对某种类型的指针进行强制类型转换的目的仅在于 <strong><em>我们想以什么样的方式去访问某段内存</em></strong>。</p>
+<p>所以说对某种类型的指针进行强制类型转换的目的仅在于<strong><em>我们想以什么样的方式去访问某段内存</em></strong>。</p>
 <hr>
 <p>参考资料：<br>[C程序设计语言][K&amp;R]</p>
 
