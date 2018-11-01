@@ -163,17 +163,17 @@
 
 
 
-  <meta name="description" content="我们先看一下对该问题的描述：  已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。">
+  <meta name="description" content="基本说明  函数原型： `int scanf(char fmt, …)`* 参数说明：它的第一个参数fmt是格式字符串，包含普通字符和转换说明；第二个参数是可变长参数表，它的参数必须是指针，这是c语言 传值调用语义所要求的  。它的返回值是 成功匹配并赋值的输入项个数。 如果到达文件尾，它返回EOF。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="约瑟夫环问题详解">
-<meta property="og:url" content="https://yaoer.me/2018/10/25/joseph/index.html">
+<meta property="og:title" content="浅析scanf函数">
+<meta property="og:url" content="https://yaoer.me/2018/11/01/scanf/index.html">
 <meta property="og:site_name" content="若倾">
-<meta property="og:description" content="我们先看一下对该问题的描述：  已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。">
+<meta property="og:description" content="基本说明  函数原型： `int scanf(char fmt, …)`* 参数说明：它的第一个参数fmt是格式字符串，包含普通字符和转换说明；第二个参数是可变长参数表，它的参数必须是指针，这是c语言 传值调用语义所要求的  。它的返回值是 成功匹配并赋值的输入项个数。 如果到达文件尾，它返回EOF。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-25T01:35:28.445Z">
+<meta property="og:updated_time" content="2018-11-01T07:43:27.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="约瑟夫环问题详解">
-<meta name="twitter:description" content="我们先看一下对该问题的描述：  已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。">
+<meta name="twitter:title" content="浅析scanf函数">
+<meta name="twitter:description" content="基本说明  函数原型： `int scanf(char fmt, …)`* 参数说明：它的第一个参数fmt是格式字符串，包含普通字符和转换说明；第二个参数是可变长参数表，它的参数必须是指针，这是c语言 传值调用语义所要求的  。它的返回值是 成功匹配并赋值的输入项个数。 如果到达文件尾，它返回EOF。">
 
 
 
@@ -182,7 +182,7 @@
 
 
 
-  <link rel="canonical" href="https://yaoer.me/2018/10/25/joseph/"/>
+  <link rel="canonical" href="https://yaoer.me/2018/11/01/scanf/"/>
 
 
 
@@ -192,7 +192,7 @@
   };
 </script>
 
-  <title>约瑟夫环问题详解 | 若倾</title>
+  <title>浅析scanf函数 | 若倾</title>
   
 
 
@@ -398,7 +398,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yaoer.me/2018/10/25/joseph/">
+    <link itemprop="mainEntityOfPage" href="https://yaoer.me/2018/11/01/scanf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="妖儿">
@@ -415,7 +415,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">约瑟夫环问题详解
+          <h1 class="post-title" itemprop="name headline">浅析scanf函数
               
             
           </h1>
@@ -440,7 +440,7 @@
                 
               
 
-              <time title="创建时间：2018-10-25 00:00:00 / 修改时间：09:35:28" itemprop="dateCreated datePublished" datetime="2018-10-25T00:00:00+08:00">2018-10-25</time>
+              <time title="创建时间：2018-11-01 00:00:00 / 修改时间：15:43:27" itemprop="dateCreated datePublished" datetime="2018-11-01T00:00:00+08:00">2018-11-01</time>
             
 
             
@@ -504,66 +504,84 @@
       
 
       
-        <p>我们先看一下对该问题的描述：</p>
-<blockquote>
-<p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。</p>
+        <h3 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h3><blockquote>
+<ul>
+<li><strong><em>函数原型</em></strong>： <strong><em>`int scanf(char </em>fmt, …)`*</strong></li>
+<li><strong><em>参数说明</em></strong>：它的第一个参数fmt是格式字符串，包含普通字符和转换说明；第二个参数是可变长参数表，它的参数必须是指针，这是c语言 <strong><em><font color="red">传值调用语义所要求的</font></em></strong>  。它的返回值是 <strong><em><font color="red">成功匹配并赋值的输入项个数。</font></em></strong> 如果到达文件尾，它返回EOF。</li>
+</ul>
 </blockquote>
 <a id="more"></a>
-<p>解决该问题通常有两种方法：</p>
+<p>我们可以举例说明一下它的返回值：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a, b;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
+<p>如果我们输入两个整数，程序将打印2；如果一个是整数，一个不是整数的话，程序则会打印1；通俗来说，<strong><em>就是我们输入的与格式字符串中转换说明匹配的参数个数将作为返回值。</em></strong></p>
+</blockquote>
+<h3 id="格式字符串"><a href="#格式字符串" class="headerlink" title="格式字符串"></a>格式字符串</h3><blockquote>
 <ul>
-<li><font color="red">模拟法</font>（模拟整个游戏的运行过程）<ul>
-<li><strong><em>循环链表</em></strong></li>
-<li><strong><em>数组</em></strong></li>
-</ul>
-</li>
-<li><font color="red">数学公式法</font>（直接通过公式推导得出结果，不关心具体过程）</li>
+<li><strong><em>普通字符</em></strong>（不包括%）：用于匹配输入流中下一个<strong>非空白字符。</strong></li>
+<li><strong><em>转换说明</em></strong>：依次由一个 <strong>%</strong>、一个可选的<strong>赋值禁止符*</strong>、一个可选的<strong>数值(指定最大字段宽度)</strong>、一个可选的<strong>h、l或L字符(指定目标对象的宽度)</strong> 以及一个<strong>转换字符</strong>组成。</li>
 </ul>
 </blockquote>
-<p>谈不上哪种更简单，只在于思考问题、解决问题的方式不同而已。</p>
-<blockquote>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><blockquote>
 <ul>
-<li>模拟法的时间复杂度为O(mn)，当n和m很大时，程序将很难在短时间内得到结果。<ul>
-<li>模拟法的一个优点是：程序的设计思路很清晰。</li>
-</ul>
-</li>
-<li>数学公式法的时间复杂度为O(n)。<ul>
-<li>数学方法虽然使最终的程序编写起来很简单，但前提是，你得有足够强的抽象思维能力，能够得出最终的公式。</li>
-</ul>
-</li>
+<li>首先，逐个拿输入缓冲区内的字符与格式字符串进行匹配检查。</li>
+<li><strong><em>对于转换说明，匹配成功则读入字符；匹配不成功，则将字符压回到输入缓冲区中，留待下次读取，然后函数返回。</em></strong></li>
+<li><strong><em>对于普通字符和空白符，匹配成功时把字符丢弃掉；匹配不成功，则将字符压回到输入缓冲区中，函数返回。</em></strong></li>
+<li>下一次调用scanf函数时将从上一次转换的最后一个字符的下一个字符开始继续搜索</li>
+<li>转换说明用于控制下一个输入字段的转换。但是如果转换说明中有赋值禁止符*，则跳过该字段，不进行赋值。 <strong><em><font color="red">输入字段被定义为一个不包括空白符的字符串，其边界定义为到下一个空白符或达到指定的字段宽度。</font></em></strong> 而这表明scanf函数将越过行边界读取输入。</li>
+<li>需要说明的是：<strong><em>scanf函数会忽略格式串中的空白符</em></strong>；当在格式串中遇见一个或多个连续的空白符时，它会重复读取，直到遇见一个非空白符为止，然后将最后遇见的非空白符重新放到输入缓冲区中。</li>
 </ul>
 </blockquote>
-<p>下面我们给出以上各种方法的实现：</p>
+<h3 id="一些有趣的转换说明"><a href="#一些有趣的转换说明" class="headerlink" title="一些有趣的转换说明"></a>一些有趣的转换说明</h3><h4 id="scanf扫描集"><a href="#scanf扫描集" class="headerlink" title="scanf扫描集"></a>scanf扫描集</h4><blockquote>
+<ul>
+<li>使用格式是这样的：<strong>%[]</strong>。它需要一个<strong>char *</strong> 类型的参数，并且总在所有输入之后存储一个 <strong>‘\0’</strong> 字符。</li>
+<li>方括号里可以指定匹配的所有字符，也可以指定所有不匹配的字符，只需 <strong>%<sup><a href="#fn_" id="reffn_"></a></sup></strong> 。如果想在指定的集合中包含 <strong>]</strong> ，则可以这样使用 <strong>%[]]</strong> ，例如 <strong>%[][]</strong> 可以扫描方括号。 <strong><em><font color="red">不能将空字符包含在指定的字符集合中。</font></em></strong></li>
+</ul>
+</blockquote>
 <hr>
-<h3 id="模拟法"><a href="#模拟法" class="headerlink" title="模拟法"></a>模拟法</h3><h4 id="循环链表模拟"><a href="#循环链表模拟" class="headerlink" title="循环链表模拟"></a>循环链表模拟</h4><blockquote>
-<p>确切说来，我们具体使用的是单向循环链表。我们从1，2，3，…n给每个人编号。一旦他出列，我们就将他从链表中删去，直到剩下最后一个人，即为获胜者。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%[123]"</span>, s);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, s);</span><br><span class="line">    <span class="comment">/*  它会扫描整个输入，直到遇见空格、制表或其他字符(非123)，然后将之前的字符保存在字符数组s中  */</span></span><br><span class="line">    <span class="comment">/*  如果你想要遇见数字就停止，可以这样使用  */</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%[^0-9]"</span>, s);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, s);</span><br><span class="line">    <span class="comment">/*  怎么样，是不是有点正则表达式的范儿了  */</span></span><br><span class="line">    <span class="comment">/*  我们都知道，scanf函数无法读取含空白符的字串，而我们使用扫描集就可以解决这个问题  */</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>, s);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, s);</span><br><span class="line">    <span class="comment">/*  将一行输入保存到s中，包括空白和制表符  */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是很有趣啊<code>^o^</code></p>
+<h4 id="转换说明-n"><a href="#转换说明-n" class="headerlink" title="转换说明%n"></a>转换说明<code>%n</code></h4><blockquote>
+<ul>
+<li>它不读取输入，需要一个<strong>int *</strong> 类型的参数，这个整数 <strong><em>记录了scanf函数从输入流中读取的字符总数。</em></strong></li>
+<li><strong><em>执行一个%n不会增加scanf函数匹配并赋值的输入项个数</em></strong>，即它的返回值不会增加。</li>
+</ul>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> number;     <span class="comment">/*  编号  */</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; Node;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里需要注意的是删除操作。我们都知道，每个节点都有一个next指针指向它，为了将删除所有位置的节点看作一种通用的情况，我们需要一个指向next域的指针，即一个二级指针。而且在删除过程中，要注意保证链表不断裂。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head, **np, *tmp;</span><br><span class="line">    <span class="keyword">int</span> n, m, k;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line"></span><br><span class="line">    head = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> ((head = creat_cll(head, n)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">/*  初始化链表  */</span></span><br><span class="line">    <span class="keyword">for</span> (np = &amp;head-&gt;next; *np != head; np = &amp;(*np)-&gt;next)</span><br><span class="line">        <span class="keyword">if</span> ((*np)-&gt;number == k)    <span class="comment">/*  找到开始报数的人  */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> ((*np)-&gt;next != *np) &#123;    <span class="comment">/*  剩下最后一个节点，循环终止  */</span></span><br><span class="line">        <span class="keyword">if</span> (k++ == m) &#123;     <span class="comment">/*  删除应该出列的人  */</span></span><br><span class="line">            tmp = (*np)-&gt;next;</span><br><span class="line">            <span class="built_in">free</span>(*np);</span><br><span class="line">            *np = tmp;</span><br><span class="line">            k = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            np = &amp;(*np)-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (*np)-&gt;number);   <span class="comment">/*  打印出获胜者  */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>下面的操作类似于单链表的创建，只是最后我们需要把链表的首尾连接起来而已。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  creat_cll函数：创建一个单向循环链表，并初始化  */</span></span><br><span class="line"><span class="function">Node *<span class="title">creat_cll</span><span class="params">(Node *head, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *<span class="keyword">new</span>, *pre;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((pre = <span class="keyword">new</span> = head = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node))) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">new</span>-&gt;number = n;</span><br><span class="line">    <span class="keyword">while</span> (--n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((<span class="keyword">new</span> = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node))) == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">new</span>-&gt;next = pre;</span><br><span class="line">        pre = <span class="keyword">new</span>;</span><br><span class="line">        <span class="keyword">new</span>-&gt;number = n;</span><br><span class="line">    &#125;</span><br><span class="line">    head-&gt;next = <span class="keyword">new</span>;    <span class="comment">/*  连接链表的首尾  */</span></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>循环链表还有一种方法，就是采用惰性删除</p>
-<blockquote>
-<p>意思就是我们并不真正地删除链表节点，而只是将它标记为已删除状态。因为我们的编号都是大于0的数，所以一旦某个人出列，我们只需将他的number置为0即可。</p>
-</blockquote>
-<p>具体过程如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Node *head, *p;</span><br><span class="line">    <span class="keyword">int</span> n, m, k;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line"></span><br><span class="line">    head = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> ((head = creat_cll(head, n)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (p = head-&gt;next; p != head; p = p-&gt;next)</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;number == k)    <span class="comment">/*  找到开始报数的人  */</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k++ == m) &#123;</span><br><span class="line">            p-&gt;number = <span class="number">0</span>;</span><br><span class="line">            k = <span class="number">1</span>;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">do</span> &#123;    <span class="comment">/*  每次遍历链表的时候，需要跳过那些已出列的节点，即number域为0的节点  */</span></span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125; <span class="keyword">while</span> (!p-&gt;number);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p-&gt;number);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后我们并没有销毁链表，你可以自行加上该操作。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s%n"</span>, s, &amp;n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n);</span><br><span class="line">    <span class="comment">/*  如果我们输入hello，则输出结果为:5  */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h4 id="数组模拟"><a href="#数组模拟" class="headerlink" title="数组模拟"></a>数组模拟</h4><blockquote>
-<p>数组模拟方法的难点在于我们要循环使用一个线性数组，其实稍微认真思考一下，也不是很难。每当遍历到数组末尾的时候，我们就从头重新开始遍历，一旦某个人出列，就将该处的值置为0，直到剩下最后一个人。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> *p, *q, </span><br><span class="line">    <span class="keyword">char</span> *eq;    <span class="comment">/*  指向数组末尾  */</span></span><br><span class="line">    <span class="keyword">int</span> n, m, k, i;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">    <span class="keyword">if</span> ((q = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * n)) == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;    <span class="comment">/*  为使用的数组分配内存空间  */</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        q[i] = i + <span class="number">1</span>;    <span class="comment">/*  初始化数组  */</span></span><br><span class="line"></span><br><span class="line">    i = <span class="number">1</span>;</span><br><span class="line">    eq = q + n;</span><br><span class="line">    p = q + k - <span class="number">1</span>;     <span class="comment">/*  指向开始报数的人  */</span></span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i++ == m) &#123;</span><br><span class="line">            *p = <span class="number">0</span>;</span><br><span class="line">            i = <span class="number">1</span>;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (++p &gt;= eq)    <span class="comment">/*  到达数组末尾后，就从头重新开始遍历  */</span></span><br><span class="line">                p = q;</span><br><span class="line">        &#125; <span class="keyword">while</span> (!*p);    <span class="comment">/*  跳过已出列的人  */</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *p);</span><br><span class="line">    <span class="built_in">free</span>(q);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h3><p>我们的重点主要在于 <strong><em>参数的处理</em></strong>，所以，minscanf函数只处理格式字符串和参数，格式转换则通过调用scanf函数实现。</p>
+<p>在此之前，我们先说明一下<strong>stdarg.h</strong>中包含的一组宏定义，它们对 <strong><em>如何遍历可变参数表</em></strong> 作了定义。该头文件的实现因不同的机器而不同，但提供的接口是一致的。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>宏</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>va_list</td>
+<td>用于声明一个变量，该变量将依次引用各无名参数。</td>
+</tr>
+<tr>
+<td>va_start</td>
+<td>将ap初始化为指向第一个无名参数的指针。在使用ap之前，该宏必须被调用一次。参数表必须至少包含一个有名参数，va_start将最后一个有名参数作为起点。</td>
+</tr>
+<tr>
+<td>va_arg</td>
+<td>每次调用va_arg，该函数都将返回一个参数，并将ap指向下一个参数。</td>
+</tr>
+<tr>
+<td>va_end</td>
+<td>必须在函数返回之前调用以作一些必要的清理工作。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FORMAT 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*  minscanf函数：带有可变参数表的简化的scanf函数  */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">minscanf</span><span class="params">(<span class="keyword">char</span> *fmt, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    va_list ap;    <span class="comment">/*  声明一个变量ap，该变量将依次指向每个无名参数  */</span></span><br><span class="line">    <span class="keyword">char</span> *p, *sval;</span><br><span class="line">    <span class="keyword">char</span> format[FORMAT];</span><br><span class="line">    <span class="keyword">int</span> i, *ival;</span><br><span class="line">    <span class="keyword">unsigned</span> *uval;</span><br><span class="line">    <span class="keyword">double</span> *dval;</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    va_start(ap, fmt);    <span class="comment">/*  将ap指向第一个无名参数  */</span></span><br><span class="line">    <span class="keyword">for</span> (p = fmt; *p != <span class="string">'\0'</span>; p++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (*p != <span class="string">'%'</span>) &#123;</span><br><span class="line">            format[i++] = *p;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        format[i++] = <span class="string">'%'</span>;</span><br><span class="line">        <span class="keyword">while</span> (*(p + <span class="number">1</span>) &amp;&amp; !<span class="built_in">isalpha</span>(*(p + <span class="number">1</span>)))    <span class="comment">/*  保存%后的可选字符  */</span></span><br><span class="line">            format[i++] = *++p;</span><br><span class="line">        format[i++] = *++p;    <span class="comment">/*  保存转换字符  */</span></span><br><span class="line">        format[i] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">switch</span>(*p) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'d'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'i'</span>:  </span><br><span class="line">            ival = va_arg(ap, <span class="keyword">int</span> *);</span><br><span class="line">            <span class="built_in">scanf</span>(format, ival);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'x'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'X'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'u'</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'o'</span>:</span><br><span class="line">            uval = va_arg(ap, <span class="keyword">unsigned</span> *);</span><br><span class="line">            <span class="built_in">scanf</span>(format, uval);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'f'</span>:</span><br><span class="line">            dval = va_arg(ap, <span class="keyword">double</span> *);</span><br><span class="line">            <span class="built_in">scanf</span>(format, dval);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'s'</span>:</span><br><span class="line">            sval = va_arg(ap, <span class="keyword">char</span> *);</span><br><span class="line">            <span class="built_in">scanf</span>(format, sval);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    va_end(ap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="数学公式法"><a href="#数学公式法" class="headerlink" title="数学公式法"></a>数学公式法</h3><p>利用下面这个递推公式，我们就能得到我们想要的结果。</p>
-<script type="math/tex; mode=display">
-f(N,M)=(f(N-1,M)+M)modN</script><p>$f(N, M)$表示：N个人报数，杀掉报M的那个人，最终胜利者的编号。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n;    <span class="comment">/* 总人数 */</span></span><br><span class="line">    <span class="keyword">int</span> m;    <span class="comment">/* 数到m出列 */</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        p = (p + m) % i;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"winner is %d\n"</span>, p + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考资料：<br>[C程序设计语言][K&amp;R]</p>
 
       
     </div>
@@ -591,8 +609,8 @@ f(N,M)=(f(N-1,M)+M)modN</script><p>$f(N, M)$表示：N个人报数，杀掉报M�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/24/heap/" rel="next" title="堆及其应用">
-                <i class="fa fa-chevron-left"></i> 堆及其应用
+              <a href="/2018/10/25/snake/" rel="next" title="Linux下的贪吃蛇小游戏">
+                <i class="fa fa-chevron-left"></i> Linux下的贪吃蛇小游戏
               </a>
             
           </div>
@@ -600,10 +618,6 @@ f(N,M)=(f(N-1,M)+M)modN</script><p>$f(N, M)$表示：N个人报数，杀掉报M�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/25/rcomment/" rel="prev" title="编写一个程序，删除C语言程序中的所有注释">
-                编写一个程序，删除C语言程序中的所有注释 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -760,7 +774,7 @@ f(N,M)=(f(N-1,M)+M)modN</script><p>$f(N, M)$表示：N个人报数，杀掉报M�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟法"><span class="nav-number">1.</span> <span class="nav-text">模拟法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环链表模拟"><span class="nav-number">1.1.</span> <span class="nav-text">循环链表模拟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组模拟"><span class="nav-number">1.2.</span> <span class="nav-text">数组模拟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学公式法"><span class="nav-number">2.</span> <span class="nav-text">数学公式法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本说明"><span class="nav-number">1.</span> <span class="nav-text">基本说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式字符串"><span class="nav-number">2.</span> <span class="nav-text">格式字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程"><span class="nav-number">3.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些有趣的转换说明"><span class="nav-number">4.</span> <span class="nav-text">一些有趣的转换说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scanf扫描集"><span class="nav-number">4.1.</span> <span class="nav-text">scanf扫描集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转换说明-n"><span class="nav-number">4.2.</span> <span class="nav-text">转换说明%n</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单实现"><span class="nav-number">5.</span> <span class="nav-text">简单实现</span></a></li></ol></div>
             
 
           </div>
@@ -1318,30 +1332,6 @@ f(N,M)=(f(N-1,M)+M)modN</script><p>$f(N, M)$表示：N个人报数，杀掉报M�
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
