@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yaoer.me/2018/10/23/expr/</loc>
+    
+    <lastmod>2018-11-09T05:35:21.892Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yaoer.me/2018/11/09/ai-snake/</loc>
     
-    <lastmod>2018-11-09T05:30:57.546Z</lastmod>
+    <lastmod>2018-11-09T05:34:13.104Z</lastmod>
     
   </url>
   
@@ -82,13 +89,6 @@
     <loc>https://yaoer.me/2018/10/23/arr_pointer/</loc>
     
     <lastmod>2018-10-24T05:31:15.071Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yaoer.me/2018/10/23/expr/</loc>
-    
-    <lastmod>2018-10-24T00:57:02.216Z</lastmod>
     
   </url>
   
