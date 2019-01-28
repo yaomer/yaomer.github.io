@@ -172,7 +172,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Manhattan_distance.svg/300px-Manhattan_distance.svg.png">
 <meta property="og:image" content="https://github.com/yaomer/pictures/blob/master/snake.png?raw=true">
-<meta property="og:updated_time" content="2019-01-28T14:51:52.189Z">
+<meta property="og:updated_time" content="2019-01-28T14:55:23.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单AI贪吃蛇">
 <meta name="twitter:description" content="简单的手工移动的贪吃蛇模型来自于我之前的一篇博客，为了实现简单的AI功能，我只是在它的基础上添加了相关的AI部分代码而已。但就算如此，也有许多东西需要考虑。 AI贪吃蛇通俗点来说就是让蛇自己实现自动寻路功能。从这一点来说，首先应该想到的就是有关图的搜索算法了，这个我们下面会详细描述。现在我们先考虑最简单的一种情况，即使用某种办法，让蛇自己先动起来。">
@@ -460,7 +460,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-28 22:51:52" itemprop="dateModified" datetime="2019-01-28T22:51:52+08:00">2019-01-28</time>
+                <time title="修改时间：2019-01-28 22:55:23" itemprop="dateModified" datetime="2019-01-28T22:55:23+08:00">2019-01-28</time>
               
             
           </span>
@@ -555,7 +555,7 @@
 <p>对于应该如何解决这种困境，我的初步想法是，<strong><em>在寻找到蛇尾的路径时，不能使用BFS，而应该使用DFS朝相反方向找一条相对来说较远的路径</em></strong>。这种反其道而行之的做法却是合理的，当蛇无法找到可行路径时，它就应该为自己之后的行动留有余地。</p>
 <p>这种方法应当是有一定几率能跑完全图的。</p>
 <p>最后要说明的一点是，不管是<strong><em>BFS</em></strong>还是<strong><em>DFS</em></strong>，都<code>盲目式</code>搜索算法，一般而言，它们都不是高效的，而使用<code>启发式</code>搜索算法显然更好一些，如大名鼎鼎的<code>A*</code>算法。我呢，希望自己以后能有时间用<code>A*</code>算法去实现一下这个<strong><em>简单的AI贪吃蛇</em></strong>。</p>
-<p>然后呢，代码见<a href="https://yaoer.me/2018/11/09/ai-snake/">这里</a>，大家可以略作参考。</p>
+<p>然后呢，代码见<a href="https://github.com/yaomer/AI-snake" target="_blank" rel="noopener">这里</a>，大家可以略作参考。</p>
 
       
     </div>
