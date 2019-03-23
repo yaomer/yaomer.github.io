@@ -163,17 +163,17 @@
 
 
 
-  <meta name="description" content="封装所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。 123456789101112131415class person &amp;#123;public:    // 略去构造与析构函数    void name(const string&amp;amp; str) &amp;#123; _name = st">
+  <meta name="description" content="封装所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用C实现简单的OOP">
 <meta property="og:url" content="https://yaoer.me/2019/03/23/oop/index.html">
 <meta property="og:site_name" content="若倾">
-<meta property="og:description" content="封装所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。 123456789101112131415class person &amp;#123;public:    // 略去构造与析构函数    void name(const string&amp;amp; str) &amp;#123; _name = st">
+<meta property="og:description" content="封装所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T11:28:41.934Z">
+<meta property="og:updated_time" content="2019-03-23T14:08:21.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用C实现简单的OOP">
-<meta name="twitter:description" content="封装所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。 123456789101112131415class person &amp;#123;public:    // 略去构造与析构函数    void name(const string&amp;amp; str) &amp;#123; _name = st">
+<meta name="twitter:description" content="封装所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。">
 
 
 
@@ -440,7 +440,7 @@
                 
               
 
-              <time title="创建时间：2019-03-23 00:00:00 / 修改时间：19:28:41" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
+              <time title="创建时间：2019-03-23 00:00:00 / 修改时间：22:08:21" itemprop="dateCreated datePublished" datetime="2019-03-23T00:00:00+08:00">2019-03-23</time>
             
 
             
@@ -504,7 +504,7 @@
       
 
       
-        <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。</p>
+        <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>所谓封装，就是将数据以及数据的相关操作封装成一个对象，如class一般由数据成员和成员函数组成。这种将对象的操作和对象绑定在一起的方式编程起来会让人感到很舒服。<br><a id="more"></a></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 略去构造与析构函数</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">name</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str)</span> </span>&#123; _name = str; &#125;                                                                   </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"My name is "</span> &lt;&lt; _name &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> _name;   </span><br><span class="line">&#125;;   </span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;       </span><br><span class="line">    person p;</span><br><span class="line">    p.name(<span class="string">"joe"</span>);</span><br><span class="line">    p.speak();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面是一个很简单的例子，那用面向过程的方式来写会是什么样子呢？</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">(<span class="keyword">char</span> *name)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"My name is %s\n"</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    speak(<span class="string">"joe"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
